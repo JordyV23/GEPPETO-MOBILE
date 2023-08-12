@@ -25,6 +25,11 @@ const appMenuItems = <MenuItem>[
       link: '/solver',
       icon: Icons.engineering_rounded),
   MenuItem(
+      title: 'SolvIA',
+      subTitle: 'Resolucion de problemas con GEPPETTO',
+      link: '/solvia',
+      icon: Icons.chat_bubble),
+  MenuItem(
       title: 'Explorar Conceptos',
       subTitle: 'Leer mas acerca de ciertos conceptos',
       link: '/concepts',

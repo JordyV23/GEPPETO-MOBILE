@@ -2,6 +2,7 @@ import 'package:geppetto_mobile/presentation/screens/concepts/concepts_screen.da
 import 'package:geppetto_mobile/presentation/screens/conversion/conversion_screen.dart';
 import 'package:geppetto_mobile/presentation/screens/home/home_screen.dart';
 import 'package:geppetto_mobile/presentation/screens/solver/solver_screen.dart';
+import 'package:geppetto_mobile/presentation/screens/solvia/solvia_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(
@@ -18,6 +19,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/solver',
       builder: (context, state) => const SolverScreen(),
+    ),
+    GoRoute(
+      path: '/solvia',
+      builder: (context, state) => const SolvIAScreen(),
     ),
     GoRoute(
       path: '/concepts',
