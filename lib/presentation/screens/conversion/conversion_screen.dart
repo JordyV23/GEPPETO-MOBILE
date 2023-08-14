@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geppetto_mobile/presentation/utils/dialog_utils.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -43,26 +44,6 @@ class _ConversionFormState extends State<ConversionForm> {
   String errorMessage = '';
   bool isLoading = false;
 
-  void showErrorDialog(String errorMessage) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Error'),
-          content: Text(errorMessage),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop(); // Close the dialog
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   void calculateResult() async {
     setState(() {
       isLoading = true;
@@ -84,9 +65,9 @@ class _ConversionFormState extends State<ConversionForm> {
           },
         ),
       );
+      Map<String, dynamic> jsonResponse = json.decode(response.body);
 
-      if (response.statusCode == 200) {
-        Map<String, dynamic> jsonResponse = json.decode(response.body);
+      if (jsonResponse['Status'] == "True") {
         String conversionResult = jsonResponse['Numero'];
 
         setState(() {
@@ -95,16 +76,15 @@ class _ConversionFormState extends State<ConversionForm> {
         });
       } else {
         setState(() {
-          errorMessage =
-              'Error en la solicitud a la API: ${response.statusCode}';
+          errorMessage =jsonResponse['Mensaje'];
         });
-        showErrorDialog(errorMessage);
+        DialogUtils.showErrorDialog(context, errorMessage);
       }
     } catch (e) {
       setState(() {
-        errorMessage = 'Excepción al realizar la solicitud: $e';
+        errorMessage = 'Algo salió mal al hacer la solicitud, intenta más tarde...';
       });
-      showErrorDialog(errorMessage);
+      DialogUtils.showErrorDialog(context, errorMessage);
     }
 
     setState(() {
@@ -184,7 +164,8 @@ class _ConversionFormState extends State<ConversionForm> {
             onPressed: isLoading ? null : calculateResult,
             child: const Text('Calcular'),
           ),
-          if (isLoading) const CircularProgressIndicator(), // Mostrar animación de carga
+          if (isLoading)
+            const CircularProgressIndicator(), // Mostrar animación de carga
         ],
       ),
     );
