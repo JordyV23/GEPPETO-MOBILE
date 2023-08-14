@@ -9,22 +9,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SvgPicture.asset(
-            'assets/logo-gpto.svg',
-            width: 45,
-          ),
-          const Text(
-            "GEPPETTO",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          )
-        ],
-      )),
-      body: const _HomeView(),
-    );
+        appBar: AppBar(
+            title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              'assets/logo-gpto.svg',
+              width: 45,
+            ),
+            const Text(
+              "GEPPETTO",
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+            )
+          ],
+        )),
+        body: const _HomeView());
   }
 }
 
@@ -78,7 +78,8 @@ class _CustomButton extends StatelessWidget {
                     children: [
                       Text(
                         appMenuItems[index].title,
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
                       ),
                       Text(appMenuItems[index].subTitle),
                     ],

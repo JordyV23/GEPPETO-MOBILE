@@ -18,12 +18,18 @@ class AppTheme {
 
   ThemeData getTheme() => ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: colorList[selectedColor+1],
+      scaffoldBackgroundColor: colorList[selectedColor + 1],
       textTheme: Typography.whiteMountainView,
       colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: colorList[selectedColor],
           secondary: Colors.white,
           tertiary: Colors.black),
       appBarTheme: const AppBarTheme(
-          centerTitle: true, backgroundColor: Color(0xFFD33232),shadowColor: Colors.black ));
+          centerTitle: true,
+          backgroundColor: Color(0xFFD33232),
+          shadowColor: Colors.black),
+      inputDecorationTheme: const InputDecorationTheme(
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
+          ),
+      );
 }
