@@ -53,42 +53,38 @@ class _CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
 
-    return ConstrainedBox(
-      constraints: const BoxConstraints.tightFor(width: 200, height: 100),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: ElevatedButton(
-          onPressed: () {
-            context.push(appMenuItems[index].link);
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: ElevatedButton(
+        onPressed: () {
+          context.push(appMenuItems[index].link);
+        },
+        child: Row(
+          children: [
+            Icon(
+              appMenuItems[index].icon,
+              color: theme.primary,
+              size: 40.0,
+            ),
+            const SizedBox(width: 16.0),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(
-                    appMenuItems[index].icon,
-                    color: theme.primary,
-                    size: 40.0,
+                  Text(
+                    appMenuItems[index].title,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
                   ),
-                  const SizedBox(width: 16.0),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        appMenuItems[index].title,
-                        style: const TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
-                      ),
-                      Text(appMenuItems[index].subTitle),
-                    ],
-                  ),
+                  Text(appMenuItems[index].subTitle),
                 ],
               ),
-              Icon(Icons.arrow_forward_ios_rounded, color: theme.primary),
-            ],
-          ),
+            ),
+            Icon(Icons.arrow_forward_ios_rounded, color: theme.primary),
+          ],
         ),
       ),
     );
