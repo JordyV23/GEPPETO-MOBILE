@@ -1,6 +1,6 @@
 {
-    "name": "geppetto_mobile",
-    "short_name": "geppetto_mobile",
+    "name": "geppetto",
+    "short_name": "geppetto",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

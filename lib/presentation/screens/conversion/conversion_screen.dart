@@ -76,13 +76,14 @@ class _ConversionFormState extends State<ConversionForm> {
         });
       } else {
         setState(() {
-          errorMessage =jsonResponse['Mensaje'];
+          errorMessage = jsonResponse['Mensaje'];
         });
         DialogUtils.showErrorDialog(context, errorMessage);
       }
     } catch (e) {
       setState(() {
-        errorMessage = 'Algo salió mal al hacer la solicitud, intenta más tarde...';
+        errorMessage =
+            'Algo salió mal al hacer la solicitud, intenta más tarde...';
       });
       DialogUtils.showErrorDialog(context, errorMessage);
     }
@@ -106,7 +107,10 @@ class _ConversionFormState extends State<ConversionForm> {
                 inputValue = value;
               });
             },
-            decoration: const InputDecoration(labelText: 'Valor a convertir'),
+            decoration: const InputDecoration(
+              labelText: 'Valor a convertir',
+              filled: true,
+            ),
             keyboardType: TextInputType.number,
           ),
           const SizedBox(height: 10),
@@ -126,7 +130,11 @@ class _ConversionFormState extends State<ConversionForm> {
                 child: Text('${index + 2}'),
               ),
             ),
-            decoration: const InputDecoration(labelText: 'Base inicial'),
+            decoration: const InputDecoration(
+              labelText: 'Base inicial',
+              filled: true,
+              labelStyle: TextStyle( fontSize: 20, fontWeight: FontWeight.bold)
+            ),
           ),
           const SizedBox(height: 10),
           DropdownButtonFormField<String>(
@@ -145,14 +153,21 @@ class _ConversionFormState extends State<ConversionForm> {
                 child: Text('${index + 2}'),
               ),
             ),
-            decoration: const InputDecoration(labelText: 'Base final'),
+            decoration: const InputDecoration(
+              labelText: 'Base final',
+              filled: true,
+              labelStyle: TextStyle( fontSize: 20, fontWeight: FontWeight.bold)
+            ),
           ),
           const SizedBox(height: 10),
           TextFormField(
             style: const TextStyle(color: Colors.black),
             readOnly: true,
             controller: TextEditingController(text: result),
-            decoration: const InputDecoration(labelText: 'Resultado'),
+            decoration: const InputDecoration(
+              labelText: 'Resultado',
+              filled: true,
+            ),
           ),
           if (errorMessage.isNotEmpty)
             Text(
@@ -162,7 +177,11 @@ class _ConversionFormState extends State<ConversionForm> {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: isLoading ? null : calculateResult,
-            child: const Text('Calcular'),
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.all(
+                  30.0),
+            ),
+            child:const Text('Calcular', style: TextStyle( fontWeight: FontWeight.bold, fontSize: 16 ), ),
           ),
           if (isLoading)
             const CircularProgressIndicator(), // Mostrar animación de carga

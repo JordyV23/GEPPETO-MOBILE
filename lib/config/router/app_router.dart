@@ -24,9 +24,9 @@ final appRouter = GoRouter(
       path: '/solvia',
       builder: (context, state) => const SolvIAScreen(),
     ),
-    GoRoute(
-      path: '/concepts',
-      builder: (context, state) => const ConceptsScreen(),
-    )
+    // GoRoute(
+    //   path: '/concepts',
+    //   builder: (context, state) => const ConceptsScreen(),
+    // )
   ]
 );

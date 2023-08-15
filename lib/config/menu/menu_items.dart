@@ -29,9 +29,9 @@ const appMenuItems = <MenuItem>[
       subTitle: 'Resolucion de problemas con GEPPETTO',
       link: '/solvia',
       icon: Icons.chat_bubble),
-  MenuItem(
-      title: 'Explorar Conceptos',
-      subTitle: 'Leer mas acerca de ciertos conceptos',
-      link: '/concepts',
-      icon: Icons.explore_rounded),
+  // MenuItem(
+  //     title: 'Explorar Conceptos',
+  //     subTitle: 'Leer mas acerca de ciertos conceptos',
+  //     link: '/concepts',
+  //     icon: Icons.explore_rounded),
 ];

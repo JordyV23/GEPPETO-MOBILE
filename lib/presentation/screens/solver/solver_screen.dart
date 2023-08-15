@@ -103,7 +103,10 @@ class _SolverFormState extends State<SolverForm> {
                 inputValue = value;
               });
             },
-            decoration: const InputDecoration(labelText: 'Valor a convertir'),
+            decoration: const InputDecoration(
+              labelText: 'Valor a convertir',
+              filled: true,
+            ),
             keyboardType: TextInputType.text,
           ),
           const SizedBox(height: 10),
@@ -111,7 +114,10 @@ class _SolverFormState extends State<SolverForm> {
             style: const TextStyle(color: Colors.black),
             readOnly: true,
             controller: TextEditingController(text: result),
-            decoration: const InputDecoration(labelText: 'Resultado'),
+            decoration: const InputDecoration(
+              labelText: 'Resultado',
+              filled: true,
+            ),
           ),
           if (errorMessage.isNotEmpty)
             Text(

@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "geppetto_mobile" "\0"
+            VALUE "FileDescription", "geppetto" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "geppetto_mobile" "\0"
+            VALUE "InternalName", "geppetto" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "geppetto_mobile.exe" "\0"
-            VALUE "ProductName", "geppetto_mobile" "\0"
+            VALUE "OriginalFilename", "geppetto.exe" "\0"
+            VALUE "ProductName", "geppetto" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
